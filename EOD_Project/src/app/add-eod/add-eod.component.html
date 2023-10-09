@@ -1,0 +1,88 @@
+<div class="container">
+    <div class="col-sm-10"></div>
+    <div>
+        <h4 class="offset-sm-5">Add EOD</h4>
+    </div>
+    <hr>
+    <div class="form-container">
+        <form #form="ngForm" [formGroup]="addForm" (ngSubmit)="onAddNew()">
+            <div class="mb-3 col-sm-6 offset-sm-3">
+                <label for="workType" class="form-label">Work Type</label>
+                <select class="dropdown" class="form-control" formControlName="workType">
+                    <option *ngFor="let item of workTypes">{{item}}</option>
+                </select>
+                <!-- <input type="text"  > -->
+                <div *ngIf="addForm.controls['workType'].errors && (form.submitted || addForm.controls['workType'].dirty)">
+                    <small [hidden]="!addForm.controls['workType'].errors['required']" class="text-danger">
+                        Please Select Work Type
+                    </small>
+                </div>
+            </div>
+            
+            <div class="mb-3 col-sm-6 offset-sm-3">
+                <label for="workId" class="form-label">Work Id</label>
+                <input type="text" class="form-control" formControlName="workId">
+                <div *ngIf="addForm.controls['workId'].errors && (form.submitted || addForm.controls['workId'].dirty)">
+                    <small [hidden]="!addForm.controls['workId'].errors['required']" class="text-danger">
+                        Please Enter Work Id
+                    </small>
+                    <small [hidden]="!addForm.controls['workId'].errors['minlength']" class="text-danger">
+                        Please Enter Minimum 1 Number
+                    </small>
+                    <small [hidden]="!addForm.controls['workId'].errors['maxlength']" class="text-danger">
+                        Please Enter Maximum 6 Number
+                    </small>
+                </div>
+            </div>
+            <div class="mb-3 col-sm-6 offset-sm-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" formControlName="title">
+                <div *ngIf="addForm.controls['title'].errors && (form.submitted || addForm.controls['title'].dirty)">
+                    <small [hidden]="!addForm.controls['title'].errors['required']" class="text-danger">
+                        Please Enter Title
+                    </small>
+                </div>
+            </div>
+            <div class="mb-3 col-sm-6 offset-sm-3">
+                <label for="date" class="form-label">Date</label>
+                <input type="date" class="form-control" formControlName="date">
+                <div *ngIf="addForm.controls['date'].errors && (form.submitted || addForm.controls['date'].dirty)">
+                    <small [hidden]="!addForm.controls['date'].errors['required']" class="text-danger">
+                        Please Select Date
+                    </small>
+                </div>
+            </div>
+            <div class="mb-3 col-sm-6 offset-sm-3">
+                <label for="areaPath" class="form-label">Area Path</label>
+                <input type="text" class="form-control" formControlName="areaPath">
+                <div *ngIf="addForm.controls['areaPath'].errors && (form.submitted || addForm.controls['areaPath'].dirty)">
+                    <small [hidden]="!addForm.controls['areaPath'].errors['required']" class="text-danger">
+                        Please Enter Area Path
+                    </small>
+                </div>
+            </div>
+            <div class="mb-3 col-sm-6 offset-sm-3">
+                <label for="adoTime" class="form-label">ADO Time</label>
+                <input type="text" class="form-control" formControlName="adoTime" step="0.1">
+                <div *ngIf="addForm.controls['adoTime'].errors && (form.submitted || addForm.controls['adoTime'].dirty)">
+                    <small [hidden]="!addForm.controls['adoTime'].errors['required']" class="text-danger">
+                        Please Enter ADO Time
+                    </small>
+                </div>
+            </div>
+            <div class="mb-3 col-sm-6 offset-sm-3">
+                <label for="proactTime" class="form-label">Proact Time</label>
+                <input type="text" class="form-control" formControlName="proactTime">
+                <div *ngIf="addForm.controls['proactTime'].errors && (form.submitted || addForm.controls['proactTime'].dirty)">
+                    <small [hidden]="!addForm.controls['proactTime'].errors['required']" class="text-danger">
+                        Please Enter Proact Time
+                    </small>
+                </div>
+            </div>
+
+
+            <button class="btn btn-success my-2 offset-sm-3" type="submit">Submit</button> &nbsp;
+            <button class="btn btn-secondary my-2 " type="reset">Reset</button>
+        </form>
+    </div>
+</div>
