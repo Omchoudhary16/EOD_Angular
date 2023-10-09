@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="col-sm-10"></div>
+    <div>
+        <h3 class="offset-sm-5 my-3">END OF DATE REPORTS</h3>
+    </div>
+    <hr>
+    <div class="table-responsive">
+        <table class="table table-primary">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Work Type</th>
+                <th>Work Id</th>
+                <th>Title</th>
+                <th>Area Path</th>
+                <th>ADO Time</th>
+                <th>Proact Time</th>
+                <th>Leave Type</th>
+                <th>Note</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="" *ngFor="let item of combinedModel">
+                <td>{{ item.Date }}</td>
+                <td>{{ item.WorkType || '-' }}</td>
+                <td>{{ item.WorkId || '-' }}</td>
+                <td>{{ item.Title || '-' }}</td>
+                <td>{{ item.AreaPath || '-' }}</td>
+                <td>{{ item.ADOTime || '-' }}</td>
+                <td>{{ item.ProactTime || '-' }}</td>
+                <td>{{ item.LeaveType || '-' }}</td>
+                <td>{{ item.Note || '-' }}</td>
+                <td>
+                  <Button [routerLink]="['/update', item.Id]">
+                    <i class="bi bi-pencil-square"></i>
+                  </Button>
+                  &nbsp;
+                  <Button (click)="onDelete(item.Id)">
+                    <i class="bi bi-trash3-fill"></i>
+                  </Button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          
+    </div>
+    
+</div>
