@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    apiUrl: 'https://localhost:7246/api/',
+    apiUrl: 'https://eodwebapilayer20260501120551.azurewebsites.net/api/',
 };
